@@ -1,5 +1,10 @@
 import Calendar from "../calendar/Calendar";
+import CalendarContextProvider from "../calendarContextProvider/CalendarContextProvider";
 
 export default function App() {
-  return <Calendar />;
+  return (
+    <CalendarContextProvider>
+      <Calendar />
+    </CalendarContextProvider>
+  );
 }

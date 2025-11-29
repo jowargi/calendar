@@ -1,11 +1,11 @@
-import CalendarBody from "../calendarBody/CalendarBody";
-import CalendarHead from "../calendarHead/CalendarHead";
+import CalendarControls from "../calendarControls/CalendarControls";
+import CalendarTable from "../calendarTable/CalendarTable";
 
 export default function Calendar() {
   return (
-    <table>
-      <CalendarHead />
-      <CalendarBody year={2025} month={10} />
-    </table>
+    <div>
+      <CalendarControls />
+      <CalendarTable />
+    </div>
   );
 }
