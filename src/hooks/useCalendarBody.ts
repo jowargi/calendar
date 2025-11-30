@@ -13,37 +13,47 @@ export const useCalendarBody = ({
 
   useEffect(() => {
     const calendarBody = calendarBodyRef.current;
-    const weekRows = calendarBody.querySelectorAll("tr");
-
     const date = new Date(year, month, 1);
+    let weekRow: HTMLTableRowElement | null = null;
 
-    weekRows: for (const weekRow of weekRows) {
-      const dateCells = weekRow.querySelectorAll("td");
-
-      while (true) {
-        if (date.getMonth() !== month) break weekRows;
-
-        const dateNumber = date.getDate();
-        const day = date.getDay();
-
-        date.setDate(date.getDate() + 1);
-
-        if (day === 0) {
-          dateCells[dateCells.length - 1].append(dateNumber.toString());
-
-          continue weekRows;
+    while (true) {
+      if (date.getMonth() !== month) {
+        if (weekRow) {
+          calendarBody.append(weekRow);
         }
 
+        break;
+      }
+
+      if (!weekRow) {
+        weekRow = document.createElement("tr");
+
+        for (let index = 0; index < 7; index++) {
+          const dateCell = document.createElement("td");
+
+          weekRow.append(dateCell);
+        }
+      }
+
+      const dateCells = weekRow.querySelectorAll("td");
+      const dateNumber = date.getDate();
+      const day = date.getDay();
+
+      if (day === 0) {
+        dateCells[dateCells.length - 1].append(dateNumber.toString());
+
+        calendarBody.append(weekRow);
+
+        weekRow = null;
+      } else {
         dateCells[day - 1].append(dateNumber.toString());
       }
+
+      date.setDate(date.getDate() + 1);
     }
 
     return () => {
-      weekRows.forEach((weekRow) => {
-        const dateCells = weekRow.querySelectorAll("td");
-
-        dateCells.forEach((dateCell) => (dateCell.innerHTML = ""));
-      });
+      calendarBody.innerHTML = "";
     };
   }, [year, month]);
 

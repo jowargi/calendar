@@ -1,6 +1,7 @@
 import { useCalendarContext } from "../calendarContextProvider/CalendarContextProvider";
 import CalendarHead from "../calendarHead/CalendarHead";
 import CalendarBody from "../calendarBody/CalendarBody";
+import CalendarCaption from "../calendarCaption/CalendarCaption";
 
 export default function CalendarTable() {
   const { calendarState } = useCalendarContext();
@@ -9,6 +10,7 @@ export default function CalendarTable() {
 
   return Number.isFinite(year) && Number.isFinite(month) ? (
     <table>
+      <CalendarCaption year={year!} month={month!} />
       <CalendarHead />
       <CalendarBody year={year!} month={month!} />
     </table>
