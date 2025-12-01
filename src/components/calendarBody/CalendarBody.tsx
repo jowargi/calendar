@@ -1,4 +1,4 @@
-import { useCalendarBody } from "../../hooks/useCalendarBody";
+import { useCalendarBody } from "../../hooks/useCalendarBody/useCalendarBody";
 
 interface CalendarBodyProps {
   year: number;
