@@ -1,8 +1,8 @@
+import { useCalendarControls } from "../../hooks/useCalendarControls";
 import Button from "../button/Button";
-import { useCalendarContext } from "../calendarContextProvider/CalendarContextProvider";
 
 export default function CalendarControls() {
-  const { nextMonth, prevMonth } = useCalendarContext();
+  const { nextMonth, prevMonth } = useCalendarControls();
 
   return (
     <div>
