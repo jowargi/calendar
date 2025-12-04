@@ -1,0 +1,10 @@
+.controls {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+}
+
+.controls > * {
+  flex-grow: 1;
+}

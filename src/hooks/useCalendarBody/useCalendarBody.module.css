@@ -1,2 +1,36 @@
+.weekday {
+  background-color: var(--weekday-bg);
+  color: var(--weekday-text);
+}
+
+.weekend {
+  background-color: var(--weekend-bg);
+  color: var(--weekend-text);
+}
+
+.weekday,
+.weekend {
+  position: relative;
+  border: 1px solid var(--border-color);
+}
+
+.weekday:hover,
+.weekend:hover {
+  background-color: var(--hover-bg);
+}
+
 .today {
+  background-color: var(--today-bg);
+  color: var(--today-text);
+}
+
+.text {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
 }

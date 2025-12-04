@@ -42,6 +42,10 @@ export const useCalendarBody = ({
         for (let index = 0; index < 7; index++) {
           const dateCell = document.createElement("td");
 
+          dateCell.classList.add(
+            index === 5 || index === 6 ? styles.weekend : styles.weekday
+          );
+
           weekRow.append(dateCell);
         }
       }
@@ -54,7 +58,13 @@ export const useCalendarBody = ({
       if (day === 0) dateCell = dateCells[dateCells.length - 1];
       else dateCell = dateCells[day - 1];
 
-      dateCell.append(dateNumber.toString());
+      const dateSpan = document.createElement("span");
+
+      dateSpan.classList.add(styles.text);
+
+      dateSpan.append(dateNumber.toString());
+
+      dateCell.append(dateSpan);
 
       if (isSameDay(today, date)) dateCell.classList.add(styles.today);
 

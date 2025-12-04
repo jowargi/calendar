@@ -1,0 +1,10 @@
+.thead {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  font-size: var(--header-font-size);
+}
+
+.th {
+  padding: 0.5rem;
+  border: 1px solid var(--border-color);
+}

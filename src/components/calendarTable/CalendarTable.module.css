@@ -1,0 +1,6 @@
+.table {
+  flex-grow: 14;
+  border: 1px solid var(--border-color);
+  border-collapse: collapse;
+  background-color: var(--calendar-bg);
+}

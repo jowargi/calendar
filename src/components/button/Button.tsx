@@ -1,3 +1,5 @@
+import styles from "./Button.module.css";
+
 interface ButtonProps {
   children: React.ReactNode;
   type?: "button" | "submit" | "reset";
@@ -12,7 +14,12 @@ export default function Button({
   onClick,
 }: ButtonProps) {
   return (
-    <button type={type} disabled={disabled} onClick={onClick}>
+    <button
+      type={type}
+      disabled={disabled}
+      onClick={onClick}
+      className={styles.button}
+    >
       {children}
     </button>
   );
