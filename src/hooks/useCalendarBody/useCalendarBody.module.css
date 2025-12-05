@@ -10,6 +10,7 @@
 
 .weekday,
 .weekend {
+  cursor: pointer;
   position: relative;
   border: 1px solid var(--border-color);
 }
