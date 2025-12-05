@@ -1,22 +1,23 @@
 :root {
   /* Фоны */
-  --calendar-bg: #ffffff;
-  --weekday-bg: #f8f9fa;
-  --weekend-bg: #fff5f5;
-  --header-bg: #4f46e5;
-  --caption-bg: #4f46e5;
-  --hover-bg: #f3f4f6;
-  --today-bg: #dbeafe;
+  --calendar-bg: #f8f9fa;
+  --weekday-bg: #e9ecef;
+  --weekend-bg: #ffe6e6;
+  --header-bg: #3730a3;
+  --caption-bg: #3730a3;
+  --hover-bg: #e5e7eb;
+  --today-bg: #bfdbfe;
+  --controls-bg: #e9ecef;
 
   /* Цвета текста */
-  --caption-text: #ffffff;
-  --header-text: #ffffff;
-  --weekday-text: #1f2937;
-  --weekend-text: #dc2626;
-  --today-text: #1e40af;
+  --caption-text: #f8fafc;
+  --header-text: #f8fafc;
+  --weekday-text: #111827;
+  --weekend-text: #b91c1c;
+  --today-text: #1e3a8a;
 
   /* Дополнительные стили */
-  --border-color: #e5e7eb;
+  --border-color: #d1d5db;
 
   /* Размеры шрифта */
   --caption-font-size: 3rem;
@@ -24,8 +25,8 @@
   --body-font-size: 2.2rem;
 
   /* Кнопки */
-  --btn-bg: #4f46e5;
-  --btn-hover: #4338ca;
-  --btn-text: #ffffff;
+  --btn-bg: #3730a3;
+  --btn-hover: #312e81;
+  --btn-text: #f8fafc;
   --btn-font-size: 2rem;
 }
