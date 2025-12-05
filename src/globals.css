@@ -5,9 +5,9 @@
   --weekend-bg: #ffe6e6;
   --header-bg: #3730a3;
   --caption-bg: #3730a3;
-  --hover-bg: #e5e7eb;
   --today-bg: #bfdbfe;
   --controls-bg: #e9ecef;
+  --selected-bg: #5b21b6;
 
   /* Цвета текста */
   --caption-text: #f8fafc;
@@ -15,6 +15,7 @@
   --weekday-text: #111827;
   --weekend-text: #b91c1c;
   --today-text: #1e3a8a;
+  --selected-text: #ffffff;
 
   /* Дополнительные стили */
   --border-color: #d1d5db;
