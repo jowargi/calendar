@@ -27,12 +27,13 @@ export default function CalendarBody({ year, month }: CalendarBodyProps) {
       const dateCells = calendarBody.querySelectorAll("td");
 
       dateCells.forEach(
-        (dateCell) =>
-          dateCell.classList.contains(styles.selected) &&
-          dateCell.classList.remove(styles.selected)
+        (cell) =>
+          cell !== dateCell &&
+          cell.classList.contains(styles.selected) &&
+          cell.classList.remove(styles.selected)
       );
 
-      dateCell.classList.add(styles.selected);
+      dateCell.classList.toggle(styles.selected);
     }, []);
 
   return (
