@@ -8,10 +8,7 @@ export default function CalendarTable() {
   const { year, month } = useParams();
 
   return (
-    <table
-      className={styles.table}
-      onPointerDown={(event) => event.preventDefault()}
-    >
+    <table className={styles.table}>
       <CalendarCaption year={+year!} month={+month!} />
       <CalendarHead />
       <CalendarBody year={+year!} month={+month!} />

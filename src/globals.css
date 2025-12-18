@@ -8,6 +8,13 @@
   --today-bg: #bfdbfe;
   --controls-bg: #e9ecef;
   --selected-bg: #5b21b6;
+  --plus-bg: #7c3aed;
+  --plus-bg-hover: #5b21b6;
+  --textarea-bg: var(--calendar-bg);
+  --submit-bg: var(--btn-bg);
+  --submit-bg-hover: var(--btn-hover);
+  --reset-bg: #e9ecef;
+  --reset-bg-hover: #d1d5db;
 
   /* Цвета текста */
   --caption-text: #f8fafc;
@@ -16,14 +23,23 @@
   --weekend-text: #b91c1c;
   --today-text: #1e3a8a;
   --selected-text: #ffffff;
+  --plus-text: #ffffff;
+  --plus-text-hover: #ffffff;
+  --textarea-text: var(--weekday-text);
+  --submit-text: var(--btn-text);
+  --reset-text: #111827;
 
-  /* Дополнительные стили */
+  /* Цвета границы */
   --border-color: #d1d5db;
+  --plus-border-color: #5b21b6;
+  --plus-border-color-hover: #4c1d95;
 
   /* Размеры шрифта */
   --caption-font-size: 3rem;
   --header-font-size: 1.8rem;
   --body-font-size: 2.2rem;
+  --plus-font-size: 1.2rem;
+  --form-font-size: 1rem;
 
   /* Кнопки */
   --btn-bg: #3730a3;

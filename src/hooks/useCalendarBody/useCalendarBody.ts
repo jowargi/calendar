@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import styles from "./useCalendarBody.module.css";
 
 interface UseCalendarBodyParams {
+  calendarBodyRef: React.RefObject<HTMLTableSectionElement>;
   year: number;
   month: number;
 }
@@ -14,11 +15,35 @@ const isSameDay = (date1: Date, date2: Date): boolean => {
   );
 };
 
+const addDateSpan = (
+  dateCell: HTMLTableCellElement,
+  dateNumber: number
+): void => {
+  const dateSpan = document.createElement("span");
+
+  dateSpan.classList.add(styles.text);
+
+  dateSpan.innerHTML = dateNumber.toString();
+
+  dateCell.append(dateSpan);
+};
+
+const addPlusSpan = (dateCell: HTMLTableCellElement): void => {
+  const plusSpan = document.createElement("span");
+
+  plusSpan.classList.add(styles.plus);
+
+  plusSpan.innerHTML = "+";
+  plusSpan.dataset.action = "add-reminder";
+
+  dateCell.append(plusSpan);
+};
+
 export const useCalendarBody = ({
+  calendarBodyRef,
   year,
   month,
-}: UseCalendarBodyParams): React.RefObject<HTMLTableSectionElement> => {
-  const calendarBodyRef = useRef<HTMLTableSectionElement>(null!);
+}: UseCalendarBodyParams): void => {
   const todayRef = useRef<Date>(new Date());
 
   useEffect(() => {
@@ -50,21 +75,22 @@ export const useCalendarBody = ({
         }
       }
 
-      const dateNumber = date.getDate();
-      const day = date.getDay();
+      const [dateNumber, day]: [number, number] = [
+        date.getDate(),
+        date.getDay(),
+      ];
+
       const dateCells = weekRow.querySelectorAll("td");
+
       let dateCell: HTMLTableCellElement;
 
       if (day === 0) dateCell = dateCells[dateCells.length - 1];
       else dateCell = dateCells[day - 1];
 
-      const dateSpan = document.createElement("span");
+      dateCell.dataset.date = date.toLocaleDateString();
 
-      dateSpan.classList.add(styles.text);
-
-      dateSpan.append(dateNumber.toString());
-
-      dateCell.append(dateSpan);
+      addDateSpan(dateCell, dateNumber);
+      addPlusSpan(dateCell);
 
       if (isSameDay(today, date)) dateCell.classList.add(styles.today);
 
@@ -80,7 +106,5 @@ export const useCalendarBody = ({
     return () => {
       calendarBody.innerHTML = "";
     };
-  }, [year, month]);
-
-  return calendarBodyRef;
+  }, [calendarBodyRef, year, month]);
 };

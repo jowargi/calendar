@@ -26,7 +26,30 @@
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 1000;
   margin: auto;
   width: fit-content;
   height: fit-content;
+}
+
+.plus {
+  position: absolute;
+  right: 0.2rem;
+  top: 0.2rem;
+  z-index: 2000;
+  width: 1.8rem;
+  height: 1.8rem;
+  border: 1px solid var(--plus-border-color);
+  border-radius: 50%;
+  background-color: var(--plus-bg);
+  color: var(--plus-text);
+  text-align: center;
+  font-size: var(--plus-font-size);
+  line-height: 1.6rem;
+}
+
+.plus:hover {
+  border-color: var(--plus-border-color-hover);
+  background-color: var(--plus-bg-hover);
+  color: var(--plus-text-hover);
 }
