@@ -1,5 +1,6 @@
-import { useCallback } from "react";
+import { useRef } from "react";
 import { useCalendarBody } from "../../hooks/useCalendarBody/useCalendarBody";
+import { useCalendarHandlers } from "../../hooks/useCalendarHandlers/useCalendarHandlers";
 import styles from "./CalendarBody.module.css";
 
 interface CalendarBodyProps {
@@ -8,39 +9,10 @@ interface CalendarBodyProps {
 }
 
 export default function CalendarBody({ year, month }: CalendarBodyProps) {
-  const calendarBodyRef = useCalendarBody({ year, month });
+  const calendarBodyRef = useRef<HTMLTableSectionElement>(null!);
 
-  const handleDateSelect: React.MouseEventHandler<HTMLTableSectionElement> =
-    useCallback((event) => {
-      const target = event.target as HTMLElement;
-      const calendarBody = event.currentTarget as HTMLTableSectionElement;
-      const dateCell = target.closest("td");
+  useCalendarBody({ calendarBodyRef, year, month });
+  useCalendarHandlers({ calendarBodyRef });
 
-      if (!dateCell) return;
-
-      if (event.metaKey || event.ctrlKey) {
-        dateCell.classList.toggle(styles.selected);
-
-        return;
-      }
-
-      const dateCells = calendarBody.querySelectorAll("td");
-
-      dateCells.forEach(
-        (cell) =>
-          cell !== dateCell &&
-          cell.classList.contains(styles.selected) &&
-          cell.classList.remove(styles.selected)
-      );
-
-      dateCell.classList.toggle(styles.selected);
-    }, []);
-
-  return (
-    <tbody
-      ref={calendarBodyRef}
-      className={styles.tbody}
-      onClick={handleDateSelect}
-    />
-  );
+  return <tbody ref={calendarBodyRef} className={styles.tbody} />;
 }
