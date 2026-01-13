@@ -11,7 +11,7 @@ const Reminders = ({ reminders }: RemindersProps) => {
       <ul className={styles.list}>
         {reminders.map((reminder: Reminder, index: number) => (
           <li key={index} className={styles.item}>
-            {reminder.text}
+            <pre>{reminder.text}</pre>
           </li>
         ))}
       </ul>
