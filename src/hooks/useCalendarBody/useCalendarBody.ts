@@ -17,7 +17,7 @@ const isSameDay = (date1: Date, date2: Date): boolean => {
 
 const addDateSpan = (
   dateCell: HTMLTableCellElement,
-  dateNumber: number
+  dateNumber: number,
 ): void => {
   const dateSpan = document.createElement("span");
 
@@ -68,7 +68,7 @@ export const useCalendarBody = ({
           const dateCell = document.createElement("td");
 
           dateCell.classList.add(
-            index === 5 || index === 6 ? styles.weekend : styles.weekday
+            index === 5 || index === 6 ? styles.weekend : styles.weekday,
           );
 
           weekRow.append(dateCell);

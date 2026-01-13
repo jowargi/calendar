@@ -3,7 +3,7 @@ import {
   createSlice,
   type EntityState,
 } from "@reduxjs/toolkit";
-import type { GlobalState } from "../../store";
+import { type GlobalState } from "../../store";
 
 export interface Reminder {
   id: string;
@@ -20,26 +20,38 @@ export const remindersSlice = createSlice({
   reducers: {
     addReminder: (
       state: EntityState<Reminder, string>,
-      { payload }: { payload: Reminder }
-    ) => {
+      { payload }: { payload: Reminder },
+    ): void => {
       remindersAdapter.addOne(state, payload);
     },
 
     removeReminderById: (
       state: EntityState<Reminder, string>,
-      { payload }: { payload: string }
-    ) => {
+      { payload }: { payload: string },
+    ): void => {
       remindersAdapter.removeOne(state, payload);
     },
+  },
+
+  selectors: {
+    selectRemindersByDate: (
+      state: EntityState<Reminder, string>,
+      date: string,
+    ): Reminder[] =>
+      Object.values(state.entities).filter(
+        (entity: Reminder): boolean => entity.date === date,
+      ),
   },
 });
 
 export const { addReminder, removeReminderById } = remindersSlice.actions;
+
+export const { selectRemindersByDate } = remindersSlice.selectors;
 
 export const {
   selectIds: selectReminderIds,
   selectById: selectReminderById,
   selectAll: selectAllReminders,
 } = remindersAdapter.getSelectors(
-  (state: GlobalState) => state[remindersSlice.name]
+  (state: GlobalState) => state[remindersSlice.name],
 );
