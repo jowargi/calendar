@@ -98,7 +98,7 @@ export const useCalendarHandlers = ({
       (cell) =>
         cell !== dateCell &&
         cell.classList.contains(styles.selected) &&
-        cell.classList.remove(styles.selected)
+        cell.classList.remove(styles.selected),
     );
 
     dateCell.classList.toggle(styles.selected);

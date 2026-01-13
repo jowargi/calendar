@@ -1,0 +1,23 @@
+.container {
+  overflow-x: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--popup-border-color);
+  box-shadow: var(--popup-shadow);
+  background-color: var(--popup-bg);
+  color: var(--popup-color);
+  font-size: var(--popup-font-size);
+}
+
+.list {
+  text-align: start;
+}
+
+.item::before {
+  content: "•";
+  margin-right: 0.2rem;
+  font-size: 0.8rem;
+}
+
+.no-reminders {
+  text-align: center;
+}

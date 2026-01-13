@@ -46,4 +46,11 @@
   --btn-hover: #312e81;
   --btn-text: #f8fafc;
   --btn-font-size: 2rem;
+
+  /* Popup */
+  --popup-bg: #ffffff;
+  --popup-color: #111827;
+  --popup-font-size: 1.1rem;
+  --popup-border-color: #d1d5db;
+  --popup-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
